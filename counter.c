@@ -10,6 +10,10 @@
 #include <ctype.h>
 
 #define COUNT_SIZE 26
+#define BUFFER_SIZE 1024
+
+int max(int count[]);
+int min(int count[]);
 
 int main()
 {
@@ -43,13 +47,13 @@ int main()
   printf("\n\nLetter Analysis Complete!");
   printf("\n\nLetter    Occurrences    Percentage\n");
   printf("*****************************************\n");
-  for (i = 0; i < COUNT_SIZE; i++) {
+  for (i = 0; i < 26; i++) {
     printf("%-10c%-15d%-15.2f\n", i + 65,
                                count[i],
                                (((float) count[i]) / strlen(buffer)) * 100);
   }
-  // Output the number of other characters
   printf("\nTotal spaces: %d\n", spaces);
+
 
   // Find the max and min occuring character in the string, in particular the
   // position in the count array of each character
@@ -64,4 +68,36 @@ int main()
          min_pos + 65);
 
   return 0;
+}
+
+// Returns the position in array count of the associated letter that 
+// occurred the maximum number of times
+int max(int count[])
+{
+  int max = count[0];
+  int max_pos = 0;
+  for (int i = 0; i < 26; i++) {
+    if (count[i] > max)
+    {
+      max_pos = i;
+      max = count[i];
+    }
+  }  
+  return max_pos;
+}
+
+// Returns the position in array count of the associated letter that 
+// occurred the minimum number of times
+int min(int count[])
+{
+  int min = count[0];
+  int min_pos = 0;
+  for (int i = 0; i < 26; i++) {
+    if (count[i] < min)
+    {
+      min_pos = i;
+      min = count[i];
+    }
+  }  
+  return min_pos;
 }
