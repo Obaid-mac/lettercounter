@@ -9,6 +9,7 @@
 #include <string.h>
 #include <ctype.h>
 
+#define COUNT_SIZE 26
 #define BUFFER_SIZE 1024
 
 int max(int count[]);
