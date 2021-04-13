@@ -17,7 +17,7 @@ int min(int count[]);
 int main()
 {
   char buffer[BUFFER_SIZE], input, curchar;
-  int i = 0, count[26];
+  int i = 0, count[COUNT_SIZE];
   int spaces = 0;
 
   // request and read in the string from the user
@@ -28,7 +28,7 @@ int main()
   buffer[i] = '\0';
 
   // set the letter counts to zero
-  for (i = 0; i < 26; i++) count[i] = 0;
+  for (i = 0; i < COUNT_SIZE; i++) count[i] = 0;
 
   // Count the occurences of each letter a-z in the string (case insenstive)
   // in the count array with count[0] for 'a', count[1] for 'b' and so on.
